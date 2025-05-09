@@ -20,10 +20,6 @@ constructor(private http: HttpClient) {
 this.READ_tarefas();
 }
 
-ngOnInit() {
-  this.READ_tarefas();  // Carrega as tarefas ao iniciar o componente
-}
-
 CREATE_tarefa(descricaoNovaTarefa: string) {
   var novaTarefa = new Tarefa(descricaoNovaTarefa, false);
   this.http.post<Tarefa>(`${this.apiURL}/api/post`, novaTarefa).subscribe(
@@ -33,7 +29,7 @@ CREATE_tarefa(descricaoNovaTarefa: string) {
 READ_tarefas() {
   this.http.get<Tarefa[]>(`${this.apiURL}/api/getAll`).subscribe(
     resultado => this.arrayDeTarefas=resultado);
-   
+
 }
 DELETE_tarefa(tarefaAserRemovida : Tarefa) {
   var indice = this.arrayDeTarefas.indexOf(tarefaAserRemovida);
@@ -49,6 +45,6 @@ DELETE_tarefa(tarefaAserRemovida : Tarefa) {
   tarefaAserModificada).subscribe(
   resultado => { console.log(resultado); this.READ_tarefas(); });
  }
- 
+
 
 }
