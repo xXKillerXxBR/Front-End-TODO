@@ -20,6 +20,10 @@ constructor(private http: HttpClient) {
 this.READ_tarefas();
 }
 
+ngOnInit() {
+  this.READ_tarefas();  // Carrega as tarefas ao iniciar o componente
+}
+
 CREATE_tarefa(descricaoNovaTarefa: string) {
   var novaTarefa = new Tarefa(descricaoNovaTarefa, false);
   this.http.post<Tarefa>(`${this.apiURL}/api/post`, novaTarefa).subscribe(

@@ -5,5 +5,6 @@ export class Tarefa {
     constructor(_descricao: string, _statusRealizada: boolean) {
     this.descricao = _descricao;
     this.statusRealizada = _statusRealizada;
+    
     }
     }
