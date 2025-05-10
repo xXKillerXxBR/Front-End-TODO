@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   apiURL : string;
 
 constructor(private http: HttpClient) {
+  console.log("chamou")
   this.apiURL = 'https://apitarefasthiagolira242631.onrender.com';
 }
 
