@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Tarefa } from "./tarefa";
 import { HttpClient } from '@angular/common/http';
+import { filter } from 'rxjs/operators';
 
 
 @Component({
@@ -17,11 +18,10 @@ export class AppComponent {
 
 constructor(private http: HttpClient) {
   this.apiURL = 'https://apitarefasthiagolira242631.onrender.com';
-this.READ_tarefas();
 }
 
 ngOnInit() {
-  this.READ_tarefas();  // Carrega as tarefas ao iniciar o componente
+  this.READ_tarefas();
 }
 
 CREATE_tarefa(descricaoNovaTarefa: string) {
